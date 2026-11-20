@@ -104,7 +104,7 @@ export default function Hero() {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    objectPosition: 'center 12%',
+                    objectPosition: 'center 32%',
                     display: 'block',
                   }}
                 />
@@ -330,7 +330,7 @@ export default function Hero() {
             box-shadow: none !important;
           }
           .hero-photo-card img {
-            object-position: center 25% !important;
+            object-position: center 30% !important;
           }
           .hero-taglines-area {
             margin-top: 0.5rem !important;
@@ -355,7 +355,7 @@ export default function Hero() {
             box-shadow: none !important;
           }
           .hero-photo-card img {
-            object-position: center 25% !important;
+            object-position: center 30% !important;
           }
         }
       `}</style>
