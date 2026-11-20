@@ -86,22 +86,14 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="hero-photo-outer"
             >
-              {/* Backlight glow */}
-              <div style={{
-                position: 'absolute',
-                inset: '-12px',
-                borderRadius: '30px',
-                background: 'radial-gradient(circle, rgba(67,217,208,0.16) 0%, rgba(108,140,255,0.06) 60%, transparent 75%)',
-                filter: 'blur(16px)',
-                pointerEvents: 'none',
-              }} />
+             
 
               {/* Clean photo card — no tech lines, no text overlay, fading edges */}
               <div className="hero-photo-card" style={{
                 position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
-                border: '1px solid rgba(67,217,208,0.2)',
+               
                 background: 'var(--color-surface)',
                 boxShadow: '0 20px 50px rgba(0,0,0,0.45)',
               }}>
@@ -112,7 +104,7 @@ export default function Hero() {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    objectPosition: 'center 10%',
+                    objectPosition: 'center 12%',
                     display: 'block',
                   }}
                 />
@@ -334,6 +326,11 @@ export default function Hero() {
             width: 140px !important;
             height: 180px !important;
             border-radius: 18px !important;
+            border: none !important;
+            box-shadow: none !important;
+          }
+          .hero-photo-card img {
+            object-position: center 25% !important;
           }
           .hero-taglines-area {
             margin-top: 0.5rem !important;
@@ -348,12 +345,17 @@ export default function Hero() {
             font-size: 1.7rem !important;
           }
           .hero-photo-outer {
-            width: 115px !important;
+            width: 120px !important;
           }
           .hero-photo-card {
-            width: 115px !important;
-            height: 150px !important;
+            width: 120px !important;
+            height: 155px !important;
             border-radius: 16px !important;
+            border: none !important;
+            box-shadow: none !important;
+          }
+          .hero-photo-card img {
+            object-position: center 25% !important;
           }
         }
       `}</style>
