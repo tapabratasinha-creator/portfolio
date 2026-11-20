@@ -199,7 +199,7 @@ export default function Hero() {
                 boxShadow: '0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(67,217,208,0.1)',
               }}>
                 <img
-                  src="/assets/tapabrata.jpg"
+                  src={`${import.meta.env.BASE_URL}assets/tapabrata.jpg`}
                   alt="Tapabrata Sinha"
                   style={{
                     width: '100%',

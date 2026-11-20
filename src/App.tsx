@@ -51,6 +51,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage theme={theme} setTheme={setTheme} />} />
         <Route path="/project/:id" element={<ProjectDetail theme={theme} setTheme={setTheme} />} />
+        {/* Fallback route so any unmatched URL on GitHub Pages renders HomePage */}
+        <Route path="*" element={<HomePage theme={theme} setTheme={setTheme} />} />
       </Routes>
     </div>
   )
