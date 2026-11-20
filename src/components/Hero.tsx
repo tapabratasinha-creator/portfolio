@@ -31,14 +31,14 @@ export default function Hero() {
       }} />
 
       <div className="container-main" style={{ position: 'relative', zIndex: 2, paddingTop: '7rem', paddingBottom: '5rem' }}>
-        <div style={{
+        <div className="hero-grid" style={{
           display: 'grid',
           gridTemplateColumns: '1fr auto',
           gap: '4.5rem',
           alignItems: 'center',
         }}>
           {/* ── Left content ── */}
-          <div>
+          <div className="hero-content">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Hero() {
               <h1 style={{
                 fontFamily: 'Space Grotesk',
                 fontWeight: 700,
-                fontSize: 'clamp(2.8rem, 6.5vw, 5.2rem)',
+                fontSize: 'clamp(2.5rem, 6.5vw, 5.2rem)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.02em',
                 color: 'var(--color-text)',
@@ -64,7 +64,7 @@ export default function Hero() {
               <p style={{
                 fontFamily: 'Space Grotesk',
                 fontWeight: 400,
-                fontSize: 'clamp(1.1rem, 2.4vw, 1.35rem)',
+                fontSize: 'clamp(1.05rem, 2.4vw, 1.35rem)',
                 color: 'var(--color-text-muted)',
                 marginBottom: '2rem',
                 maxWidth: '520px',
@@ -73,7 +73,7 @@ export default function Hero() {
               </p>
 
               {/* Taglines chips */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2.5rem' }}>
+              <div className="hero-taglines" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2.5rem' }}>
                 {taglines.map((t, i) => (
                   <motion.span
                     key={t}
@@ -98,6 +98,7 @@ export default function Hero() {
 
               {/* Call to Actions */}
               <motion.div
+                className="hero-buttons"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.75 }}
@@ -114,6 +115,7 @@ export default function Hero() {
 
               {/* Social links */}
               <motion.div
+                className="hero-socials"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
@@ -173,7 +175,7 @@ export default function Hero() {
             className="hero-photo-wrapper"
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            <div style={{ position: 'relative', width: '310px' }}>
+            <div className="hero-photo-outer" style={{ position: 'relative', width: '310px' }}>
               {/* Backlight glow */}
               <div style={{
                 position: 'absolute',
@@ -184,12 +186,31 @@ export default function Hero() {
                 pointerEvents: 'none',
               }} />
 
-             
-            
+              {/* Accent tech lines */}
+              <div style={{
+                position: 'absolute',
+                top: '20px',
+                left: '-8px',
+                width: '3px',
+                height: '50%',
+                background: 'linear-gradient(to bottom, var(--color-teal), transparent)',
+                borderRadius: '2px',
+                zIndex: 4,
+              }} />
+              <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                right: '-8px',
+                width: '3px',
+                height: '40%',
+                background: 'linear-gradient(to top, var(--color-blue), transparent)',
+                borderRadius: '2px',
+                zIndex: 4,
+              }} />
 
               {/* Main Photo Frame — Rectangular with fading sides */}
-              <div style={{
-                width: '250px',
+              <div className="hero-photo-card" style={{
+                width: '310px',
                 height: '390px',
                 borderRadius: '24px',
                 overflow: 'hidden',
@@ -214,7 +235,7 @@ export default function Hero() {
                 <div style={{
                   position: 'absolute',
                   inset: '0 auto 0 0',
-                  width: '20%',
+                  width: '24%',
                   background: 'linear-gradient(to right, var(--color-bg) 0%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
@@ -239,7 +260,7 @@ export default function Hero() {
 
                 {/* Subtle vignette border */}
                 <div style={{
-                  position: 'relative',
+                  position: 'absolute',
                   inset: 0,
                   boxShadow: 'inset 0 0 32px rgba(8,14,25,0.7)',
                   pointerEvents: 'none',
@@ -257,10 +278,32 @@ export default function Hero() {
                   gap: '0.2rem',
                   zIndex: 5,
                 }}>
-                  
+                  <span style={{
+                    fontFamily: 'Space Grotesk',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    color: 'var(--color-text)',
+                    letterSpacing: '0.02em',
+                    whiteSpace: 'nowrap',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.8)',
+                  }}>Tapabrata Sinha</span>
+                  <span style={{
+                    fontFamily: 'JetBrains Mono',
+                    fontSize: '0.62rem',
+                    color: 'var(--color-teal)',
+                    letterSpacing: '0.14em',
+                    whiteSpace: 'nowrap',
+                    textShadow: '0 1px 6px rgba(0,0,0,0.8)',
+                  }}>COMPUTER SCIENCE & ENGINEERING</span>
                 </div>
               </div>
 
+              {/* Corner decorative dot matrix */}
+              <div style={{ position: 'absolute', top: '-8px', right: '-8px', display: 'grid', gridTemplateColumns: 'repeat(3, 4px)', gap: '4px', zIndex: 5 }}>
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div key={i} style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(67,217,208,0.45)' }} />
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -293,9 +336,56 @@ export default function Hero() {
       </div>
 
       <style>{`
+        /* Mobile optimization: Show profile photo on top, centered, face focused */
         @media (max-width: 860px) {
-          .hero-photo-wrapper { display: none !important; }
-          section#hero .container-main > div { grid-template-columns: 1fr !important; }
+          .hero-grid {
+            display: flex !important;
+            flex-direction: column-reverse !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 2.25rem !important;
+          }
+          .hero-content {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .hero-photo-wrapper {
+            display: flex !important;
+            justify-content: center !important;
+            width: 100% !important;
+            margin-bottom: 0.5rem !important;
+          }
+          .hero-photo-outer {
+            width: 250px !important;
+          }
+          .hero-photo-card {
+            width: 250px !important;
+            height: 320px !important;
+            border-radius: 20px !important;
+          }
+          .hero-photo-card img {
+            object-position: center 10% !important;
+          }
+          .hero-taglines {
+            justify-content: center !important;
+          }
+          .hero-buttons {
+            justify-content: center !important;
+          }
+          .hero-socials {
+            justify-content: center !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-photo-outer {
+            width: 220px !important;
+          }
+          .hero-photo-card {
+            width: 220px !important;
+            height: 285px !important;
+          }
         }
       `}</style>
     </section>
