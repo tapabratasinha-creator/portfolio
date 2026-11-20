@@ -31,31 +31,35 @@ export default function Hero() {
       }} />
 
       <div className="container-main" style={{ position: 'relative', zIndex: 2, paddingTop: '7rem', paddingBottom: '5rem' }}>
-        <div className="hero-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr auto',
-          gap: '4.5rem',
-          alignItems: 'center',
-        }}>
-          {/* ── Left content ── */}
-          <div className="hero-content">
+        <div className="hero-grid">
+          {/* ── Area 1: Section Label ── */}
+          <div className="hero-label-area">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="section-label"
+              style={{ marginBottom: '0.75rem' }}
+            >
+              Computer Science & Engineering · Software Development · AI · Product Innovation
+            </motion.div>
+          </div>
+
+          {/* ── Area 2: Name & Subtitle ── */}
+          <div className="hero-name-area">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="section-label" style={{ marginBottom: '1.25rem' }}>
-                Computer Science & Engineering · Software Development · AI · Product Innovation
-              </div>
-
               <h1 style={{
                 fontFamily: 'Space Grotesk',
                 fontWeight: 700,
-                fontSize: 'clamp(2.5rem, 6.5vw, 5.2rem)',
+                fontSize: 'clamp(2.6rem, 6.2vw, 5.2rem)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.02em',
                 color: 'var(--color-text)',
-                marginBottom: '1rem',
+                marginBottom: '0.75rem',
               }}>
                 TAPABRATA<br />
                 <span style={{ color: 'var(--color-text)' }}>SINHA</span>
@@ -64,160 +68,42 @@ export default function Hero() {
               <p style={{
                 fontFamily: 'Space Grotesk',
                 fontWeight: 400,
-                fontSize: 'clamp(1.05rem, 2.4vw, 1.35rem)',
+                fontSize: 'clamp(1rem, 2.2vw, 1.35rem)',
                 color: 'var(--color-text-muted)',
-                marginBottom: '2rem',
+                marginBottom: '1.25rem',
                 maxWidth: '520px',
               }}>
                 Building technology with purpose.
               </p>
-
-              {/* Taglines chips */}
-              <div className="hero-taglines" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2.5rem' }}>
-                {taglines.map((t, i) => (
-                  <motion.span
-                    key={t}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
-                    style={{
-                      fontFamily: 'JetBrains Mono',
-                      fontSize: '0.78rem',
-                      padding: '0.35rem 0.9rem',
-                      borderRadius: '7px',
-                      background: i === 0 ? 'rgba(67,217,208,0.1)' : 'var(--color-surface)',
-                      color: i === 0 ? 'var(--color-teal)' : 'var(--color-text-muted)',
-                      border: `1px solid ${i === 0 ? 'rgba(67,217,208,0.3)' : 'var(--color-border)'}`,
-                      backdropFilter: 'blur(8px)',
-                    }}
-                  >
-                    {t}
-                  </motion.span>
-                ))}
-              </div>
-
-              {/* Call to Actions */}
-              <motion.div
-                className="hero-buttons"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.75 }}
-                style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
-              >
-                <a href="#projects" className="btn-primary">
-                  Explore Projects
-                  <ArrowDown size={16} />
-                </a>
-                <a href="#contact" className="btn-secondary">
-                  Contact Me
-                </a>
-              </motion.div>
-
-              {/* Social links */}
-              <motion.div
-                className="hero-socials"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                style={{ display: 'flex', gap: '0.85rem', marginTop: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}
-              >
-                {[
-                  { icon: <GithubIcon size={18} />, href: 'https://github.com/tapabratasinha-creator', label: 'GitHub' },
-                  { icon: <LinkedinIcon size={18} />, href: 'https://linkedin.com/in/tapabrata-sinha', label: 'LinkedIn' },
-                  { icon: <CodeforcesIcon size={18} />, href: 'https://codeforces.com/profile/tapabratasinha20', label: 'Codeforces' },
-                  { icon: <Mail size={18} />, href: 'mailto:tapabratasinha20@gmail.com', label: 'Email' },
-                ].map(s => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={s.label}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '42px',
-                      height: '42px',
-                      borderRadius: '10px',
-                      background: 'var(--color-surface)',
-                      border: '1px solid var(--color-border)',
-                      color: 'var(--color-text-muted)',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s, border-color 0.2s, transform 0.2s',
-                      position: 'relative',
-                      zIndex: 3,
-                      backdropFilter: 'blur(8px)',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.color = 'var(--color-teal)'
-                      e.currentTarget.style.borderColor = 'rgba(67,217,208,0.45)'
-                      e.currentTarget.style.transform = 'translateY(-2px)'
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.color = 'var(--color-text-muted)'
-                      e.currentTarget.style.borderColor = 'var(--color-border)'
-                      e.currentTarget.style.transform = 'translateY(0)'
-                    }}
-                  >
-                    {s.icon}
-                  </a>
-                ))}
-              </motion.div>
             </motion.div>
           </div>
 
-          {/* ── Right: Profile photo — rectangular, face-focused, fading sides ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="hero-photo-wrapper"
-            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-          >
-            <div className="hero-photo-outer" style={{ position: 'relative', width: '310px' }}>
+          {/* ── Area 3: Photo (Beside the name on mobile, right column on desktop) ── */}
+          <div className="hero-photo-area">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="hero-photo-outer"
+            >
               {/* Backlight glow */}
               <div style={{
                 position: 'absolute',
-                inset: '-18px',
-                borderRadius: '32px',
-                background: 'radial-gradient(circle, rgba(67,217,208,0.18) 0%, rgba(108,140,255,0.08) 50%, transparent 75%)',
-                filter: 'blur(20px)',
+                inset: '-12px',
+                borderRadius: '30px',
+                background: 'radial-gradient(circle, rgba(67,217,208,0.16) 0%, rgba(108,140,255,0.06) 60%, transparent 75%)',
+                filter: 'blur(16px)',
                 pointerEvents: 'none',
               }} />
 
-              {/* Accent tech lines */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                left: '-8px',
-                width: '3px',
-                height: '50%',
-                background: 'linear-gradient(to bottom, var(--color-teal), transparent)',
-                borderRadius: '2px',
-                zIndex: 4,
-              }} />
-              <div style={{
-                position: 'absolute',
-                bottom: '20px',
-                right: '-8px',
-                width: '3px',
-                height: '40%',
-                background: 'linear-gradient(to top, var(--color-blue), transparent)',
-                borderRadius: '2px',
-                zIndex: 4,
-              }} />
-
-              {/* Main Photo Frame — Rectangular with fading sides */}
+              {/* Clean photo card — no tech lines, no text overlay, fading edges */}
               <div className="hero-photo-card" style={{
-                width: '310px',
-                height: '390px',
+                position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
-                position: 'relative',
-                border: '1px solid rgba(67,217,208,0.22)',
+                border: '1px solid rgba(67,217,208,0.2)',
                 background: 'var(--color-surface)',
-                boxShadow: '0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(67,217,208,0.1)',
+                boxShadow: '0 20px 50px rgba(0,0,0,0.45)',
               }}>
                 <img
                   src={`${import.meta.env.BASE_URL}assets/tapabrata.jpg`}
@@ -235,7 +121,7 @@ export default function Hero() {
                 <div style={{
                   position: 'absolute',
                   inset: '0 auto 0 0',
-                  width: '24%',
+                  width: '26%',
                   background: 'linear-gradient(to right, var(--color-bg) 0%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
@@ -244,7 +130,7 @@ export default function Hero() {
                 <div style={{
                   position: 'absolute',
                   inset: '0 0 0 auto',
-                  width: '24%',
+                  width: '26%',
                   background: 'linear-gradient(to left, var(--color-bg) 0%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
@@ -253,59 +139,110 @@ export default function Hero() {
                 <div style={{
                   position: 'absolute',
                   inset: 'auto 0 0 0',
-                  height: '34%',
+                  height: '35%',
                   background: 'linear-gradient(to top, var(--color-bg) 0%, transparent 100%)',
                   pointerEvents: 'none',
                 }} />
+              </div>
+            </motion.div>
+          </div>
 
-                {/* Subtle vignette border */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  boxShadow: 'inset 0 0 32px rgba(8,14,25,0.7)',
-                  pointerEvents: 'none',
-                }} />
-
-                {/* Minimal engineer tag at the bottom */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '1.2rem',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '0.2rem',
-                  zIndex: 5,
-                }}>
-                  <span style={{
-                    fontFamily: 'Space Grotesk',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    color: 'var(--color-text)',
-                    letterSpacing: '0.02em',
-                    whiteSpace: 'nowrap',
-                    textShadow: '0 2px 10px rgba(0,0,0,0.8)',
-                  }}>Tapabrata Sinha</span>
-                  <span style={{
+          {/* ── Area 4: Taglines ── */}
+          <div className="hero-taglines-area">
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+              {taglines.map((t, i) => (
+                <motion.span
+                  key={t}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                  style={{
                     fontFamily: 'JetBrains Mono',
-                    fontSize: '0.62rem',
-                    color: 'var(--color-teal)',
-                    letterSpacing: '0.14em',
-                    whiteSpace: 'nowrap',
-                    textShadow: '0 1px 6px rgba(0,0,0,0.8)',
-                  }}>COMPUTER SCIENCE & ENGINEERING</span>
-                </div>
-              </div>
-
-              {/* Corner decorative dot matrix */}
-              <div style={{ position: 'absolute', top: '-8px', right: '-8px', display: 'grid', gridTemplateColumns: 'repeat(3, 4px)', gap: '4px', zIndex: 5 }}>
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(67,217,208,0.45)' }} />
-                ))}
-              </div>
+                    fontSize: '0.78rem',
+                    padding: '0.35rem 0.9rem',
+                    borderRadius: '7px',
+                    background: i === 0 ? 'rgba(67,217,208,0.1)' : 'var(--color-surface)',
+                    color: i === 0 ? 'var(--color-teal)' : 'var(--color-text-muted)',
+                    border: `1px solid ${i === 0 ? 'rgba(67,217,208,0.3)' : 'var(--color-border)'}`,
+                    backdropFilter: 'blur(8px)',
+                  }}
+                >
+                  {t}
+                </motion.span>
+              ))}
             </div>
-          </motion.div>
+          </div>
+
+          {/* ── Area 5: Action Buttons ── */}
+          <div className="hero-buttons-area">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+            >
+              <a href="#projects" className="btn-primary">
+                Explore Projects
+                <ArrowDown size={16} />
+              </a>
+              <a href="#contact" className="btn-secondary">
+                Contact Me
+              </a>
+            </motion.div>
+          </div>
+
+          {/* ── Area 6: Social Links ── */}
+          <div className="hero-socials-area">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              style={{ display: 'flex', gap: '0.85rem', alignItems: 'center', flexWrap: 'wrap' }}
+            >
+              {[
+                { icon: <GithubIcon size={18} />, href: 'https://github.com/tapabratasinha-creator', label: 'GitHub' },
+                { icon: <LinkedinIcon size={18} />, href: 'https://linkedin.com/in/tapabrata-sinha', label: 'LinkedIn' },
+                { icon: <CodeforcesIcon size={18} />, href: 'https://codeforces.com/profile/tapabratasinha20', label: 'Codeforces' },
+                { icon: <Mail size={18} />, href: 'mailto:tapabratasinha20@gmail.com', label: 'Email' },
+              ].map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={s.label}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
+                    background: 'var(--color-surface)',
+                    border: '1px solid var(--color-border)',
+                    color: 'var(--color-text-muted)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s, border-color 0.2s, transform 0.2s',
+                    position: 'relative',
+                    zIndex: 3,
+                    backdropFilter: 'blur(8px)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.color = 'var(--color-teal)'
+                    e.currentTarget.style.borderColor = 'rgba(67,217,208,0.45)'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.color = 'var(--color-text-muted)'
+                    e.currentTarget.style.borderColor = 'var(--color-border)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -336,55 +273,87 @@ export default function Hero() {
       </div>
 
       <style>{`
-        /* Mobile optimization: Show profile photo on top, centered, face focused */
+        /* Desktop layout (Reverted to side-by-side as it was earlier, clean, no text on image) */
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 300px;
+          grid-template-areas:
+            "label photo"
+            "name photo"
+            "taglines photo"
+            "buttons photo"
+            "socials photo";
+          gap: 1.25rem 4rem;
+          align-items: center;
+        }
+        .hero-label-area { grid-area: label; }
+        .hero-name-area { grid-area: name; }
+        .hero-taglines-area { grid-area: taglines; margin-bottom: 0.5rem; }
+        .hero-buttons-area { grid-area: buttons; margin-bottom: 1rem; }
+        .hero-socials-area { grid-area: socials; }
+        .hero-photo-area {
+          grid-area: photo;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .hero-photo-outer {
+          position: relative;
+          width: 300px;
+        }
+        .hero-photo-card {
+          width: 300px;
+          height: 380px;
+        }
+
+        /* Mobile layout: Photo beside the name, fitting full face, no top placement */
         @media (max-width: 860px) {
           .hero-grid {
-            display: flex !important;
-            flex-direction: column-reverse !important;
+            grid-template-columns: 1fr auto !important;
+            grid-template-areas:
+              "label label"
+              "name photo"
+              "taglines taglines"
+              "buttons buttons"
+              "socials socials" !important;
+            gap: 1.25rem 1rem !important;
             align-items: center !important;
-            text-align: center !important;
-            gap: 2.25rem !important;
           }
-          .hero-content {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
+          .hero-name-area h1 {
+            font-size: clamp(1.85rem, 6vw, 2.7rem) !important;
+            line-height: 1.08 !important;
           }
-          .hero-photo-wrapper {
-            display: flex !important;
-            justify-content: center !important;
-            width: 100% !important;
-            margin-bottom: 0.5rem !important;
+          .hero-name-area p {
+            font-size: 0.95rem !important;
+            margin-bottom: 0 !important;
           }
           .hero-photo-outer {
-            width: 250px !important;
+            width: 140px !important;
           }
           .hero-photo-card {
-            width: 250px !important;
-            height: 320px !important;
-            border-radius: 20px !important;
+            width: 140px !important;
+            height: 180px !important;
+            border-radius: 18px !important;
           }
-          .hero-photo-card img {
-            object-position: center 10% !important;
-          }
-          .hero-taglines {
-            justify-content: center !important;
-          }
-          .hero-buttons {
-            justify-content: center !important;
-          }
-          .hero-socials {
-            justify-content: center !important;
+          .hero-taglines-area {
+            margin-top: 0.5rem !important;
           }
         }
 
         @media (max-width: 480px) {
+          .hero-grid {
+            gap: 1rem 0.65rem !important;
+          }
+          .hero-name-area h1 {
+            font-size: 1.7rem !important;
+          }
           .hero-photo-outer {
-            width: 220px !important;
+            width: 115px !important;
           }
           .hero-photo-card {
-            width: 220px !important;
-            height: 285px !important;
+            width: 115px !important;
+            height: 150px !important;
+            border-radius: 16px !important;
           }
         }
       `}</style>
